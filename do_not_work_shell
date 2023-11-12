@@ -1,0 +1,35 @@
+#include "main.h"
+/**
+* main - simple shell
+*@ac: num of arguments
+*@argv: pointer to the arguments
+* Return: 0 success or -1 for fail
+**/
+int main(int ac, char *argv[])
+{
+        char *buffer, *token;
+        size_t n;
+        ssize_t num_get_read;
+        int i = 0, j = 0;
+
+        while (1)
+        {
+                printf("(&) ");
+                num_get_read = getline(&buffer, &n, stdin);
+                if (num_get_read == -1)
+                        return (-1);
+                /**write(1, buffer, num_get_read);*/
+        argv = malloc(sizeof(char *) * (ac + 1));
+        token = strtok(buffer, " ");
+        for (i = 0; token != NULL; i++)
+        {
+                argv[i] = malloc(sizeof(char) * _strlen(token));
+                cpstr(argv[i], token);
+                token = strtok(NULL, " ");
+        }
+        argv[i] = "/0";
+        while (argv[j] != NULL)
+                printf("%s\n", argv[j++]);
+        }
+        free(buffer);
+    
