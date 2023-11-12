@@ -8,7 +8,7 @@
 
 int main (int argc, char *argv[])
 {
-	char * get_line, *tokens[];
+	char * get_line, **tokens;
 	while(1) 
 	{
 		get_line = get_command();
