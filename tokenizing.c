@@ -9,7 +9,7 @@
 char **tokenizing(char *prompt)
 {
 	int i = 0, num = 0;
-	size_t j = 0;
+	int j = 0;
 	char *token = NULL, **tokens_array;
 
 	if (prompt == NULL)
