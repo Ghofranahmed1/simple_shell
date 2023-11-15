@@ -6,7 +6,7 @@
  * return: 0 for sucess 
  */
 
-int main (int argc, char *argv[])
+int main (int argc, char *argv[], char *env[])
 {
 	char * get_line, **tokens;
 	int exit_status = 0;
