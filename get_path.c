@@ -7,18 +7,20 @@
 
 char * get_path(char **env)
 {
-	size_t index = 0, count = 0, count_new = 0;
+	size_t index = 0, count = 5, var = 0;
 	char *path = NULL;
 
 	for(index = 0; strncmp(env[index], "PATH=", 5); index++)
 		;
 	if (env[index] == NULL)
 		return (NULL);
-	for (count = 5; env[index][count]; count++)
-		count_new++;
-	path = malloc(sizeof(char) * (count_new + 1));
-	for (count_new = 0, count = 5; env[index][count]; count++, count_new++)
-		path[count_new] = env[index][count];
-	path[count_new] = '\0';
+	for (count = 5; env[index][count]; var++, count++)
+		;
+	path = malloc(sizeof(char) * (count + 1));
+	if(path == NULL)
+		return (NULL);
+	for (var = 5, count = 0; env[index][var]; var++, count++)
+		path[count] = env[index][var];
+	path[count] = '\0';
 	return (path);
 }
