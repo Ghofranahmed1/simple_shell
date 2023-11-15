@@ -27,6 +27,7 @@ int main (int argc, char *argv[], char *env[])
 				getenv(env);
 			else
 			{
+				n = path
 
 
 
