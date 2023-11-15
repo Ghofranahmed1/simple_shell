@@ -1,13 +1,12 @@
 #include "main.h"
 /**
- *
- *
- *
- *
- *
+ *exit_commad - a buit in function to exit the program
+ *@token_array: array contain all the argument
+ *@get_line: the command that the user enter it
+ *@status: the exit status
+ *Return: nothing
  */
-
-void exit(char **token_array, char *get_line, int status)
+void exit_command(char **token_array, char *get_line, int status)
 {
 	int new_status; 
 
@@ -25,4 +24,3 @@ void exit(char **token_array, char *get_line, int status)
 		exit (new_status);
 	}
 }
-

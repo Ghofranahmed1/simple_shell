@@ -9,6 +9,6 @@ void get_env(char *env[])
 {
 	int i = 0;
 
-	for(i = 0, env[i] != NULL, i++)
+	for(i = 0; env[i] != NULL; i++)
 		printf("%s\n", env[i]);
 }

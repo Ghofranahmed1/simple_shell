@@ -7,8 +7,8 @@
  */
 int all_path(char **command, char **env)
 {
-	char *whole_path = NULL, *token = NULL, one_path = NULL;
-	size_t command_len;
+	char *whole_path = NULL, *token = NULL, *one_path = NULL;
+	/*size_t command_len;*/
 	struct stat lineptr;
 
 	/** 
@@ -30,16 +30,16 @@ int all_path(char **command, char **env)
 			return (-1);
 		}
 		strcpy(one_path, token);
-		strcat(one_path, '/');
-		strcat(one_path, *comman);
+		strcat(one_path, "/");
+		strcat(one_path, *command);
 		if (stat(one_path, &lineptr) == 0){
 			/** mean file exist */
-			*command == one_path;
+			*command = one_path;
 			free(whole_path);
 			return(0);
 		}
 		free(one_path);
-		token = (NULL, ":");
+		token = strtok(NULL, ":");
 	}
 	free(whole_path);
 	return (-1);

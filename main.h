@@ -9,6 +9,9 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+void exit_command(char **token_array, char *get_line, int status);
 int _strlen(char *str);
 int cpstr(char *str_cp, char *str);
 int exe(char *argv[]);

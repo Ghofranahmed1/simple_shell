@@ -25,8 +25,8 @@ int main (int argc, char *argv[], char *env[])
 				continue;
 			}
 			if (!strcmp(tokens[0], "exit"))
-				exit(tokens, get_line, exit_satus);
-			if (!strcmp(token[0], "env"))
+				exit_command(tokens, get_line, exit_status);
+			if (!strcmp(tokens[0], "env"))
 				get_env(env);
 			else
 			{
