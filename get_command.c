@@ -14,16 +14,14 @@ char *get_command(void)
 	 * not redirect from another file will return (0)
 	 * */
 
-	if (isatty(0))
-		write (1, "($) ", 4);
-
+	if (isatty(STDIN_FILENO))
+		write (STDOUT_FILENO, "($) ", 4);
 
 	if (getline(&command_line, &n, stdin) == -1)
 	{
 		free (command_line);
-		perror("ERROR:");
+		perror("ERROR");
 		return (NULL);
 	}
-	free (command_line);
 	return (command_line);
 }

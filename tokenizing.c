@@ -8,9 +8,9 @@
 
 char **tokenizing(char *prompt)
 {
-	int i = 0, num = 0;
-	int j = 0;
-	char *token = NULL, **tokens_array;
+	int i = 0;
+	size_t j = 0, num = 0;
+	char *token = NULL, **tokens_array = NULL;
 
 	if (prompt == NULL)
 	{
@@ -22,7 +22,9 @@ char **tokenizing(char *prompt)
 		if (prompt[j] == ' ')
 			num++;
 	}
-	tokens_array = malloc(sizeof(char *) * (num + 1));
+	if ((num + 1) == strlen(prompt))
+		return (NULL);
+	tokens_array = malloc(sizeof(char *) * (num + 2));
 	if (tokens_array == NULL)
 	{
 		perror("ERROR:");
@@ -34,6 +36,6 @@ char **tokenizing(char *prompt)
 		tokens_array[i] = token;
 		token = strtok(NULL, " \n\t\r");
 	}
-	tokens_array[i] = "/0";
+	tokens_array[i] = '\0';
 	return (tokens_array);
 }

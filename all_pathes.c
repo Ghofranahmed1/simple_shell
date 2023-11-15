@@ -8,6 +8,7 @@
 int all_path(char **command, char **env)
 {
 	char *whole_path = NULL, *token = NULL, *one_path = NULL;
+	size_t command_len;
 	/*size_t command_len;*/
 	struct stat lineptr;
 
@@ -21,15 +22,16 @@ int all_path(char **command, char **env)
 	if (whole_path == NULL)
 		return (-1);
 	token = strtok(whole_path, ":");
+	command_len = strlen(*command);
 	while (token)
 	{
-		one_path = malloc(sizeof(char) * (strlen(token) + strlen(*command) + 1));
+		one_path = malloc(sizeof(char) * (strlen(token) + command_len + 2));
 		if (one_path == NULL)
 		{
 			free(whole_path);
 			return (-1);
 		}
-		strcpy(one_path, token);
+		one_path = strcpy(one_path, token);
 		strcat(one_path, "/");
 		strcat(one_path, *command);
 		if (stat(one_path, &lineptr) == 0){

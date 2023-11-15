@@ -8,7 +8,7 @@
 
 int main(int ac, char *argv[], char *env[])
 {
-	char * get_line, **tokens;
+	char * get_line = NULL, **tokens = NULL;
 	int exit_status = 0;
 	int n = 0, path_num = 0, _exit = 0;
 	(void)ac;
@@ -25,7 +25,7 @@ int main(int ac, char *argv[], char *env[])
 				free(get_line);
 				continue;
 			}
-			if (!strcmp(tokens[0], "exit"))
+			if (!strcmp(tokens[0], "exit") && tokens[1] == NULL)
 				exit_command(tokens, get_line, exit_status);
 			if (!strcmp(tokens[0], "env"))
 				get_env(env);
