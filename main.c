@@ -31,6 +31,7 @@ int main (int argc, char *argv[], char *env[])
 			else
 			{
 				n = all_path(&argv[0], env);
+
 			}
 		}
 	}
