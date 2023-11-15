@@ -17,4 +17,5 @@ int main(int argc, char *argv[]);
 char **tokenizing(char *prompt);
 char * get_path(char **env);
 void get_env(char *env[]);
+int all_path(char **command, char **env);
 #endif
