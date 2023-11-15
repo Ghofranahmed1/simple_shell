@@ -5,7 +5,9 @@
  *@argve: the commad the the user enter it.
  *@env: enviroment variable
  *linepte: command the get_line it from the user
- *
+ *@path_value: process id
+ *@ path_fun_return: the return from the previous function
+ * Return: 0 sucess
  */
 
 int command_execution(char **array_token, char **argv, char **env, char *lineptr, int path_value, int path_fun_return)
