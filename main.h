@@ -15,4 +15,5 @@ int exe(char *argv[]);
 char * get_command(void);
 int main(int argc, char *argv[]);
 char **tokenizing(char *prompt);
+char * get_path(char **env);
 #endif
