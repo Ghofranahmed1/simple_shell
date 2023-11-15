@@ -1,5 +1,6 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
@@ -11,12 +12,11 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <errno.h>
+
 void exit_command(char **token_array, char *get_line, int status);
-int _strlen(char *str);
-int cpstr(char *str_cp, char *str);
-int exe(char *argv[]);
+int command_execution(char **array_token, char **argv, char **env, char *lineptr, int path_value, int path_fun_return);
 char * get_command(void);
-int main(int argc, char *argv[]);
 char **tokenizing(char *prompt);
 char * get_path(char **env);
 void get_env(char *env[]);

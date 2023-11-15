@@ -12,7 +12,7 @@
 
 int command_execution(char **array_token, char **argv, char **env, char *lineptr, int path_value, int path_fun_return)
 {
-	pid child;
+	pid_t child;
 	char *format = "%s: %d: %s: not found\n";
 	int buffer;
 
@@ -20,7 +20,7 @@ int command_execution(char **array_token, char **argv, char **env, char *lineptr
 	/*
 	 * for childern
 	 */
-	if (child = 0)
+	if (child == 0)
 	{
 		if (execve(argv[0], argv, env) == -1)
 		{
@@ -34,9 +34,9 @@ int command_execution(char **array_token, char **argv, char **env, char *lineptr
 	}
 	else
 	{
-		waitpid(&buffer);
-		if(WIFEXITED(status) && WEXITSTATUS(status) != 0)
-				return (WEXITSTATUS(status));
+		wait(&buffer);
+		if(WIFEXITED(buffer) && WEXITSTATUS(buffer) != 0)
+				return (WEXITSTATUS(buffer));
 	}
 				return (0);
 }

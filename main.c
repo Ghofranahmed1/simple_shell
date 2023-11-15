@@ -6,11 +6,12 @@
  * return: 0 for sucess 
  */
 
-int main (int argc, char *argv[], char *env[])
+int main(int ac, char *argv[], char *env[])
 {
 	char * get_line, **tokens;
 	int exit_status = 0;
 	int n = 0, path_num = 0, _exit = 0;
+	(void)ac;
 
 	while(1) 
 	{
@@ -31,19 +32,19 @@ int main (int argc, char *argv[], char *env[])
 			else
 			{
 				n = all_path(&argv[0], env);
-
+				_exit = command_execution(tokens, argv, env, get_line, path_num, n);
+				if (n == 0)
+					free(tokens[0]);
 			}
+			free(tokens);
 		}
+		else
+		{
+			if (isatty(STDIN_FILENO))
+				write(STDOUT_FILENO, "\n", 1);
+			exit(_exit);
+		}
+		free(get_line);
 	}
+	return (_exit);
 }
-
-
-
-
-
-
-
-	}
-	return (0);
-}
-
